@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:moneyapp/pages/addtransactionpage.dart';
 import 'package:moneyapp/pages/mainpage.dart';
 import 'package:moneyapp/pages/transactionspage.dart';
 // import 'package:sup/pages/carspage.dart';
@@ -26,15 +27,8 @@ class _HomePageState extends State<HomePage> {
       case 1:
         context.go('${TransactionsPage.route}');
         break;
-      // case 2:
-      //   context.go('${ColumnRow.route}');
-      //   break;
-      // case 3:
-      //   context.go('${CarsPage.route}');
-      //   break;
-      // case 4:
-      //   context.go('${CardWidget.route}');
-      //   break;
+      case 2:
+        context.go('${AddTransactionPage.route}');
     }
     setState(() {
       currentIndex = index;
@@ -50,11 +44,9 @@ class _HomePageState extends State<HomePage> {
           selectedIndex: currentIndex,
           onDestinationSelected: changeTab,
           destinations: const [
-            NavigationDestination(icon: Icon(Icons.house), label: 'mainpage'),
-            NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
-            NavigationDestination(icon: Icon(Icons.air), label: 'Column'),
-            NavigationDestination(icon: Icon(Icons.car_repair), label: 'Carspage',),
-            NavigationDestination(icon: Icon(Icons.card_giftcard), label: 'MyWidget',),
+            NavigationDestination(icon: Icon(Icons.house), label: 'Home'),
+            NavigationDestination(icon: Icon(Icons.line_axis), label: 'Transactions'),
+            NavigationDestination(icon: Icon(Icons.plus_one), label: 'Add Transaction'),
           ]),
     );
   }

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:moneyapp/pages/addtransactionpage.dart';
 import 'package:moneyapp/pages/mainpage.dart';
 import 'package:moneyapp/pages/transactionspage.dart';
-// import 'package:sup/pages/carspage.dart';
-// import 'package:sup/pages/columnrow.dart';
-// import 'package:sup/pages/newspage.dart';
-// import 'package:sup/pages/settingspage.dart';
-// import 'package:sup/pages/widget.dart';
+
 
 import 'pages/homepage.dart';
 
@@ -46,28 +43,22 @@ final router = GoRouter(navigatorKey: _parentKey, routes: [
           parentNavigatorKey: _shellKey,
           name: 'Transactions',
           pageBuilder: (context, state) =>
-              noTransitionPageBuilder(context, state, const TransactionsPage()),
+              noTransitionPageBuilder(
+                context, 
+                state, 
+                const TransactionsPage()
+                ),
         ),
-        // GoRoute(
-        //   path: ColumnRow.route,
-        //   parentNavigatorKey: _shellKey,
-        //   name: 'columns',
-        //   pageBuilder: (context, state) =>
-        //       noTransitionPageBuilder(context, state, const ColumnRow()),
-        // ),
-        // GoRoute(
-        //   path: CarsPage.route,
-        //   parentNavigatorKey: _shellKey,
-        //   name: "carspage",
-        //   pageBuilder: (context, state) =>
-        //       noTransitionPageBuilder(context, state, const CarsPage()),
-        // ),
-        // GoRoute(
-        //   path: CardWidget.route,
-        //   parentNavigatorKey: _shellKey,
-        //   name: "Mywidget",
-        //   pageBuilder: (context, state) => 
-        //       noTransitionPageBuilder(context, state, const CardWidget()),
-        // )
+        GoRoute(
+          path: AddTransactionPage.route,
+          parentNavigatorKey: _shellKey,
+          name: 'Add Transaction',
+          pageBuilder: (context, state) => 
+              noTransitionPageBuilder(
+                context, 
+                state,
+                const AddTransactionPage()
+                ),
+        ),
       ]),
 ]);
