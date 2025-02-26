@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:moneyapp/pages/addtransactionpage.dart';
+import 'package:moneyapp/pages/financialreportpage.dart';
 import 'package:moneyapp/pages/mainpage.dart';
 import 'package:moneyapp/pages/transactionspage.dart';
 // import 'package:sup/pages/carspage.dart';
@@ -29,6 +30,10 @@ class _HomePageState extends State<HomePage> {
         break;
       case 2:
         context.go('${AddTransactionPage.route}');
+        break;
+      case 3:
+        context.go('${FinancialReportPage.route}');
+        break;
     }
     setState(() {
       currentIndex = index;

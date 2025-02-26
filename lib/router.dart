@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:moneyapp/pages/addtransactionpage.dart';
+import 'package:moneyapp/pages/financialreportpage.dart';
 import 'package:moneyapp/pages/mainpage.dart';
 import 'package:moneyapp/pages/transactionspage.dart';
 
@@ -59,6 +60,17 @@ final router = GoRouter(navigatorKey: _parentKey, routes: [
                 state,
                 const AddTransactionPage()
                 ),
+        ),
+        GoRoute(
+          path: FinancialReportPage.route,
+          parentNavigatorKey: _shellKey,
+          name: 'Financial Report',
+          pageBuilder: (context, state) =>
+              noTransitionPageBuilder(
+                context,
+                state,
+                const FinancialReportPage()
+              ),
         ),
       ]),
 ]);
