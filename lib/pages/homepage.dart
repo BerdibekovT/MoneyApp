@@ -4,6 +4,7 @@ import 'package:moneyapp/pages/addtransactionpage.dart';
 import 'package:moneyapp/pages/financialreportpage.dart';
 import 'package:moneyapp/pages/mainpage.dart';
 import 'package:moneyapp/pages/transactionspage.dart';
+import 'package:pocketbase/pocketbase.dart';
 // import 'package:sup/pages/carspage.dart';
 // import 'package:sup/pages/columnrow.dart';
 // import 'package:sup/pages/settingspage.dart';
@@ -19,6 +20,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> createUser()async{
+    final pb = PocketBase('https://book-shop.fly.dev');
+    const data = {
+    "username": "test_username",
+    "email": "test@example.com",
+    "emailVisibility": true,
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "role": "User"
+};
+
+var record = await pb.collection('users').create(body:data);
+print(record);
+  }
   int currentIndex = 0;
   void changeTab(int index) {
     switch (index) {
@@ -45,6 +60,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBody: true,
       body: widget.child,
+      floatingActionButton: FloatingActionButton(onPressed: ()=>createUser()),
       bottomNavigationBar: NavigationBar(
           selectedIndex: currentIndex,
           onDestinationSelected: changeTab,
@@ -52,6 +68,7 @@ class _HomePageState extends State<HomePage> {
             NavigationDestination(icon: Icon(Icons.house), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.line_axis), label: 'Transactions'),
             NavigationDestination(icon: Icon(Icons.plus_one), label: 'Add Transaction'),
+            NavigationDestination(icon: Icon(Icons.pie_chart), label: 'Report',),
           ]),
     );
   }

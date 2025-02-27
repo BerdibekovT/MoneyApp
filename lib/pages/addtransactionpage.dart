@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
-class AddTransactionPage extends StatelessWidget {
+class AddTransactionPage extends StatefulWidget {
 
   static const String route = '/addtransactionpage';
   const AddTransactionPage({super.key});
 
   @override
+  State<AddTransactionPage> createState() => _AddTransactionPageState();
+}
+
+class _AddTransactionPageState extends State<AddTransactionPage> {
+  final TextEditingController sumController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Transaction'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
+       
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -24,10 +27,15 @@ class AddTransactionPage extends StatelessWidget {
               'How much?',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 8),
-            Text(
-              " 7777 ",
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            SizedBox(
+              width: 250,
+              child: TextFormField(
+                controller: sumController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(border: OutlineInputBorder(),
+                
+                ),
+              ),
             ),
             SizedBox(height: 16),
             DropdownButtonFormField<String>(

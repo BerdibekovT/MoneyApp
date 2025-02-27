@@ -10,9 +10,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
     return Scaffold(
       appBar: AppBar(
-        title: Text('DAY, MONTH & DAY'),
+        title: Text('${now.day}, ${now.month} & ${now.weekday}'),
       ),
       body: SingleChildScrollView(
         child: Padding(
